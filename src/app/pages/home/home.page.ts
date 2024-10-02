@@ -17,7 +17,10 @@ export class HomePage implements OnInit{
 
   ngOnInit(){
     this.srv.getCategoria().subscribe(datos=>{
-      console.log(datos);
+      console.log(datos.categories);
+      this.listacategorias.push(...datos.categories);
+      console.log("***LISTA OK***");
+      console.log(this.listacategorias);
     })
   }
 
