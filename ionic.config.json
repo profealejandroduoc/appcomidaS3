@@ -1,0 +1,7 @@
+{
+  "name": "appcomidaS3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
