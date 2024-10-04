@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Categorias } from '../interfaces/icomidas';
+import { Categorias, Comidas } from '../interfaces/icomidas';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class DatosService {
   }
 
 
-  getComidasxCategoria(){
-    return this.httplclient.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=lamb`);
+  getComidasxCategoria(categoria:string){
+    return this.httplclient.get<Comidas>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoria}`);
   }
 
 }

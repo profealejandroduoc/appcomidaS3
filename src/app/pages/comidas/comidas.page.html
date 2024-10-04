@@ -3,10 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver" mode="ios" color="light"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">comidas</ion-title>
+    <ion-title color="light">{{comidas}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
- 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="tertiary">Comidas con {{comidas}}</ion-card-title>
+      <ion-card-subtitle>Selecciona tu plato</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="ion-padding">
+      <ion-list>
+        <ion-item *ngFor="let item of lista" detail="true">
+          <ion-thumbnail slot="start">
+            <img alt="imagen" src="{{item.strMealThumb}}" />
+          </ion-thumbnail>
+          <ion-label>{{item.strMeal}}</ion-label>
+        </ion-item>
+  
+        
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
