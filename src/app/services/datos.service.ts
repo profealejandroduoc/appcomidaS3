@@ -16,4 +16,9 @@ export class DatosService {
 
   }
 
+
+  getComidasxCategoria(){
+    return this.httplclient.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=lamb`);
+  }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { Categoria } from 'src/app/interfaces/icomidas';
 import { DatosService } from 'src/app/services/datos.service';
 
@@ -11,7 +12,7 @@ export class HomePage implements OnInit{
 
   listacategorias:Categoria[]=[];
   
-  constructor(private srv:DatosService) {}
+  constructor(private srv:DatosService, private router:Router) {}
 
 
 
@@ -22,6 +23,16 @@ export class HomePage implements OnInit{
       console.log("***LISTA OK***");
       console.log(this.listacategorias);
     })
+  }
+
+  verComidas(categoria:string){
+    //console.log(categoria);
+    let xtras:NavigationExtras={
+      state:{
+        cat_origen:categoria
+      }
+    }
+    this.router.navigate(['/comidas'],xtras);
   }
 
 }
