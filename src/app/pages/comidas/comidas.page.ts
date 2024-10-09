@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Comida } from 'src/app/interfaces/icomidas';
 import { DatosService } from 'src/app/services/datos.service';
 
@@ -26,5 +26,17 @@ export class ComidasPage implements OnInit {
         this.lista.push(...datos.meals);
       })
     }
+  }
+
+  verReceta(id:string){
+    console.log(id);
+    let xtra:NavigationExtras={
+      state:{
+        id:id
+      }
+    }
+
+    this.router.navigate(['/detalle-comida'],xtra);
+
   }
 }
