@@ -11,12 +11,18 @@
   <ion-card *ngFor="let item of listareceta" >
     <img alt="imagen" src="{{item.strMealThumb}}" />
     <ion-card-header>
-      <ion-card-title color="tertiary">{{item.strMeal}}</ion-card-title>
-      <ion-card-subtitle>{{item.idMeal}}</ion-card-subtitle>
+      <ion-toolbar>
+        <ion-title color="tertiary"><h1>{{item.strMeal}}</h1></ion-title>
+        <ion-icon id="abrir-action" name="ellipsis-vertical" color="primary" slot="end" size="large"></ion-icon>
+      </ion-toolbar>
     </ion-card-header>
   
     <ion-card-content>
       {{item.strInstructions}}
     </ion-card-content>
+    <ion-action-sheet trigger="abrir-action" header="Actions" mode="ios" [buttons]="actionSheetButtons"></ion-action-sheet>
+
   </ion-card>
+
+
 </ion-content>

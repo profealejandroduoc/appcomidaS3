@@ -12,7 +12,29 @@ export class DetalleComidaPage implements OnInit {
 
   listareceta:Receta[]=[]
   constructor(private router:Router, private srv:DatosService) { }
-
+  public actionSheetButtons = [
+    {
+      text: 'Agregar a Favoritos',
+      icon:"heart-outline",
+      role: 'destructive',
+     
+      
+    },
+    {
+      text: 'Share',
+      icon:'share-social',
+      data: {
+        action: 'share',
+      },
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      data: {
+        action: 'cancel',
+      },
+    },
+  ];
   ngOnInit() {
     let estado=this.router.getCurrentNavigation()?.extras.state;
     if(estado!==undefined){
