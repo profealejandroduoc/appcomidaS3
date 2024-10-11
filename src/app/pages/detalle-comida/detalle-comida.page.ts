@@ -36,6 +36,7 @@ export class DetalleComidaPage implements OnInit {
     },
   ];
   ngOnInit() {
+    console.clear();
     let estado=this.router.getCurrentNavigation()?.extras.state;
     if(estado!==undefined){
       this.srv.getReceta(estado['id']).subscribe(datos=>{

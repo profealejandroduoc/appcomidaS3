@@ -12,12 +12,12 @@
     <img alt="imagen" src="{{item.strMealThumb}}" />
     <ion-card-header>
       <ion-toolbar>
-        <ion-title color="tertiary"><h1>{{item.strMeal}}</h1></ion-title>
+        <ion-text color="tertiary" slot="start" class="ion-padding"><h3>{{item.strMeal}}</h3></ion-text>
         <ion-icon id="abrir-action" name="ellipsis-vertical" color="primary" slot="end" size="large"></ion-icon>
       </ion-toolbar>
     </ion-card-header>
   
-    <ion-card-content>
+    <ion-card-content class="ion-padding">
       {{item.strInstructions}}
     </ion-card-content>
     <ion-action-sheet trigger="abrir-action" header="Actions" mode="ios" [buttons]="actionSheetButtons"></ion-action-sheet>
