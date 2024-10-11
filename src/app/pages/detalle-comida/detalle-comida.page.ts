@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Receta } from 'src/app/interfaces/icomidas';
+import { AlmacenamientoService } from 'src/app/services/almacenamiento.service';
 import { DatosService } from 'src/app/services/datos.service';
 
 @Component({
@@ -11,7 +12,11 @@ import { DatosService } from 'src/app/services/datos.service';
 export class DetalleComidaPage implements OnInit {
 
   listareceta:Receta[]=[]
-  constructor(private router:Router, private srv:DatosService) { }
+  constructor(private router:Router, 
+    private srv:DatosService,
+    private db:AlmacenamientoService,
+    ) { }
+
   public actionSheetButtons = [
     {
       text: 'Agregar a Favoritos',
@@ -44,6 +49,21 @@ export class DetalleComidaPage implements OnInit {
       });
     }
 
+  }
+
+  /*metodos de prueba*/
+  save(){
+
+    this.db.guardar('100',"hola padelman");
+  }
+
+  cargar(){
+    let clave:string="100"
+    let valor=this.db.leer(clave);
+    valor.then(dato=>{
+      console.log("DATOS DESDE STORAGE: " + dato);
+    })
+    
   }
 
 }
