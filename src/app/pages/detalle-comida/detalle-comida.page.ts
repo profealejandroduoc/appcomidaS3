@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Receta } from 'src/app/interfaces/icomidas';
 import { AlmacenamientoService } from 'src/app/services/almacenamiento.service';
 import { DatosService } from 'src/app/services/datos.service';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-comida',
@@ -15,31 +16,10 @@ export class DetalleComidaPage implements OnInit {
   constructor(private router:Router, 
     private srv:DatosService,
     private db:AlmacenamientoService,
+    private asc:ActionSheetController,
     ) { }
 
-  public actionSheetButtons = [
-    {
-      text: 'Agregar a Favoritos',
-      icon:"heart-outline",
-      role: 'destructive',
-     
-      
-    },
-    {
-      text: 'Share',
-      icon:'share-social',
-      data: {
-        action: 'share',
-      },
-    },
-    {
-      text: 'Cancel',
-      role: 'cancel',
-      data: {
-        action: 'cancel',
-      },
-    },
-  ];
+
   ngOnInit() {
     console.clear();
     let estado=this.router.getCurrentNavigation()?.extras.state;
@@ -49,6 +29,38 @@ export class DetalleComidaPage implements OnInit {
       });
     }
 
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.asc.create({
+      header: 'Actions',
+      mode:'ios',
+      buttons: [
+        {
+          text: 'Agregar a Favoritos',
+          icon:'heart-outline',
+          handler:()=>{
+            this.cargar();
+          }
+          
+        },
+        {
+          text: 'Share',
+          data: {
+            action: 'share',
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          data: {
+            action: 'cancel',
+          },
+        },
+      ],
+    });
+
+    await actionSheet.present();
   }
 
   /*metodos de prueba*/
