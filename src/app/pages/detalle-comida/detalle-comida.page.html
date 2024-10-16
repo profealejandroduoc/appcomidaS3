@@ -8,13 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="save()" expand="block" fill="clear" shape="round">
-    guadar
-  </ion-button>
-
-  <ion-button (click)="cargar()" expand="block" fill="clear" shape="round">
-    cargar
-  </ion-button>
+ 
   
   <ion-card *ngFor="let item of listareceta" >
     <img alt="imagen" src="{{item.strMealThumb}}" />

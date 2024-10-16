@@ -26,4 +26,9 @@ export class AlmacenamientoService {
     return await this._storage?.get(key);
   }
 
+
+  public async remover(key:string){
+    await this._storage?.remove(key);
+  }
+
 }
