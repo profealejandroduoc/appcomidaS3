@@ -53,9 +53,10 @@ export class DetalleComidaPage implements OnInit {
         },
         {
           text: 'Share',
-          data: {
-            action: 'share',
-          },
+          handler:()=>{
+            this.compartir();
+          }
+       
         },
         {
           text: 'Cancel',
@@ -68,6 +69,11 @@ export class DetalleComidaPage implements OnInit {
     });
 
     await actionSheet.present();
+  }
+
+
+  compartir() {
+    
   }
 
   /*metodos de prueba*/
